@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Creel from './components/Creel';
 import CascadaBasaseachi from './components/CascadaBasaseachi';
 import Guachochi from './components/Guachochi';
-import './App.css';
+import './assets/css/App.css';
 
 function App() {
   return (
