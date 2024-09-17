@@ -1,0 +1,43 @@
+.header {
+  position: fixed;
+  top: 50px; /* Margen superior */
+  left: 50px; /* Margen izquierdo */
+  right: 100px; /* Margen derecho */
+  width: calc(100% - 150px); /* Ajustar el ancho para tener en cuenta los márgenes */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  padding: 20px;
+  background-color: rgba(139, 69, 19, 0.8); /* Fondo con transparencia */
+  color: var(--white);
+  z-index: 1000; /* Asegura que el menú esté por encima del contenido */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle relieve */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 40px; /* Da un pequeño espacio entre el logo y los elementos de navegación */
+}
+
+.header a:hover {
+  color: var(--light-brown);
+}

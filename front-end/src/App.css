@@ -1,0 +1,27 @@
+:root {
+  --brown: #8B4513;
+  --green: #2E8B57;
+  --light-brown: #D2B48C;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-brown);
+  color: var(--brown);
+}
+
+a {
+  text-decoration: none;
+  color: var(--green);
+}
+
+button {
+  background-color: var(--green);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}

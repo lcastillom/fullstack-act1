@@ -1,0 +1,23 @@
+.contact {
+  padding: 50px;
+  background: linear-gradient(135deg, #8B4513, #D2B48C); /* De café oscuro a café claro */
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input, textarea {
+  width: 60%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid var(--brown);
+  border-radius: 4px;
+}
+
+button {
+  width: 30%;
+}

@@ -1,0 +1,45 @@
+.places {
+  padding: 50px;
+}
+
+.creel {
+  background: linear-gradient(180deg, #d1b99a, #8B4513); /* De café claro a café oscuro */
+ }
+
+ .guachochi {
+  background: linear-gradient(180deg, #c7b3a66a, #bbc7bb); /* De café claro a café oscuro */
+ }
+
+ .cascada {
+  background: linear-gradient(180deg, #22475b, #9abcd1); /* De café claro a café oscuro */
+ }
+
+.places-header {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 100px;
+}
+
+.places-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.place {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 8px;
+  width: 30%;
+}
+
+.place p {
+  font-size: 1.2em;  
+}
+
+.place-center {
+  text-align: center;
+}
+
+.places-header h2 {
+  color: white;
+}

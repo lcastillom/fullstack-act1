@@ -1,0 +1,6 @@
+.about {
+  padding: 50px;
+  background: linear-gradient(135deg, #66CDAA, #2E8B57); /* Gradiente de verde claro a verde oscuro */
+  color: var(--white);
+  text-align: center;
+}
