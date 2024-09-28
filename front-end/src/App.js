@@ -1,26 +1,22 @@
 import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Contact from './components/Contact';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
-import Creel from './components/Creel';
-import CascadaBasaseachi from './components/CascadaBasaseachi';
-import Guachochi from './components/Guachochi';
+import Landing from './components/Landing';
+import ClientesAdmin from './components/ClientesAdmin';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './assets/css/App.css';
 
 function App() {
   return (
     <div>
-      <Header />
-      <Hero />
-      <Creel />
-      <CascadaBasaseachi />
-      <Guachochi />
-      <Services />
-      <About />
-      <Contact />
+      <ToastContainer />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/admin/clientes" element={<ClientesAdmin />} />
+        </Routes>
+      </Router>
       <Footer />
     </div>
   );
