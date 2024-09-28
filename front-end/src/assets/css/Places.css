@@ -14,7 +14,7 @@
   background: linear-gradient(180deg, #22475b, #9abcd1); /* De café claro a café oscuro */
  }
 
-.places-header {
+ .places-header {
   text-align: center;
   margin-bottom: 50px;
   margin-top: 100px;
@@ -23,21 +23,35 @@
 .places-list {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap; /* Permite que las columnas se ajusten en varias filas si es necesario */
+  width: 80%; /* Ocupa el 80% del contenedor principal */
+  margin: 0 auto; /* Centra el contenedor dentro del padre */
 }
 
 .place {
   background-color: var(--white);
   padding: 20px;
   border-radius: 8px;
-  width: 30%;
+  width: 45%; /* Ajusta el ancho de cada columna */
+  margin-bottom: 20px; /* Espacio entre filas en caso de wrap */
 }
 
 .place p {
-  font-size: 1.2em;  
+  font-size: 1.2em;
 }
 
 .place-center {
-  text-align: center;
+  display: grid; /* Cambia a grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Crea una cuadrícula adaptable */
+  gap: 20px; /* Espacio entre las imágenes */
+  justify-items: center; /* Centra las imágenes en cada celda */
+}
+
+.place-center img {
+  width: 100%; /* Asegura que las imágenes ocupen el 100% de la celda */
+  height: auto; /* Mantiene las proporciones de la imagen */
+  object-fit: cover; /* Ajusta la imagen para llenar el contenedor sin deformarse */
+  border-radius: 8px; /* Opcional: añade bordes redondeados */
 }
 
 .places-header h2 {
