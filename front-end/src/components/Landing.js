@@ -2,6 +2,7 @@ import React from 'react';
 import About from './About';
 import CascadaBasaseachi from './CascadaBasaseachi';
 import Creel from './Creel';
+import Formulario from './Formulario';
 import Guachochi from './Guachochi';
 import Hero from './Hero';
 import Navbar from './Navbar';
@@ -17,6 +18,7 @@ const Landing = () => {
       <Guachochi />
       <Services />
       <About />
+      <Formulario />
     </div>
   );
 };
