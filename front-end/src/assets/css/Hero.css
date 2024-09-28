@@ -5,17 +5,22 @@
   align-items: flex-start;
   background-image: url("./../img/Fondo.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center;
   color: var(--white);
-  padding-top: 120px; /* Espacio superior para dejar lugar bajo el menú flotante */
+  padding-top: 120px;
   padding-left: 20px;
   padding-right: 20px;
+  box-sizing: border-box;
 }
 
 .hero-content {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
-  max-width: 1200px; /* Limita el ancho del contenido */
+  max-width: 1200px;
+  box-sizing: border-box;
 }
 
 .hero-text {
@@ -23,21 +28,50 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  max-width: 50%;
+  max-height: 60vh;
+  overflow-y: auto; /* Barra de desplazamiento si el texto es muy largo */
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+/* Personalización del scrollbar */
+.hero-text::-webkit-scrollbar {
+  width: 8px; /* Anchura de la barra de desplazamiento */
+}
+
+.hero-text::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3); /* Color semi-transparente para el thumb (la barra que se mueve) */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.hero-text::-webkit-scrollbar-track {
+  background-color: transparent; /* Fondo transparente del track (el riel de la barra) */
 }
 
 .hero h1 {
   font-size: 2.5rem;
-  margin-bottom: 20px; /* Espacio entre el título y la leyenda */
+  margin-bottom: 20px;
+}
+
+.hero h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--white);
 }
 
 .hero-legend {
   font-size: 1.2rem;
   line-height: 1.6;
-  max-width: 500px;
 }
 
 .hero-empty-space {
   flex: 1;
+  max-width: 50%;
+}
+
+.hero-content p {
+  margin-bottom: 20px;
 }
 
 button {
