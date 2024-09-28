@@ -1,0 +1,89 @@
+/* Estilos generales del menú */
+.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 50px; /* Margen superior */
+  left: 50px; /* Margen izquierdo */
+  right: 100px; /* Margen derecho */
+  width: calc(100% - 150px); /* Ajustar el ancho para tener en cuenta los márgenes */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  padding: 20px;
+  background-color: rgba(139, 69, 19, 0.8); /* Fondo con transparencia */
+  color: var(--white);
+  z-index: 1000; /* Asegura que el menú esté por encima del contenido */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle relieve */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.navbar-logo h2 {
+  margin: 0;
+  color: var(--white);
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-menu li {
+  margin-left: 20px;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Esconder el botón de hamburguesa en pantallas grandes */
+.navbar-toggle {
+  display: none;
+}
+
+/* Estilos para el menú en pantallas pequeñas */
+@media (max-width: 950px) {
+  /* Muestra el botón de hamburguesa en pantallas pequeñas */
+  .navbar-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+  }
+
+  /* Esconde el menú inicialmente */
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    padding: 10px 0;
+    z-index: 99;
+  }
+
+  /* Muestra el menú cuando se activa */
+  .navbar-menu-open {
+    display: flex;
+  }
+
+  .navbar-menu li {
+    margin: 10px 0;
+  }
+
+  .navbar-menu li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--brown);
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
