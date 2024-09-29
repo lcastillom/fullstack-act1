@@ -16,7 +16,7 @@ app.use(express.json());
 
 // Configura CORS para permitir solicitudes desde el origen de tu aplicación de front-end
 app.use(cors({
-  origin: 'https://localhost:3000' // Reemplaza con el origen de tu aplicación de front-end
+  origin: process.env.ORIGIN // Reemplaza con el origen de tu aplicación de front-end
 }));
 
 // Swagger configuration
@@ -248,13 +248,21 @@ app.delete('/api/clientes/:id', async (req, res) => {
   }
 });
 
-// Read SSL/TLS certificate and key
-const options = {
-  key: fs.readFileSync('./../key.pem'),
-  cert: fs.readFileSync('./../cert.pem')
-};
+if (process.env.IS_PRODUCTION) {
+  // Create HTTP server - hosting service add SSL/TLS
+  app.listen(port, () => {
+    console.log(`HTTP Server is running on ${port}`);
+  });
+} else {
+  // Read SSL/TLS certificate and key
+  const options = {
+    key: fs.readFileSync('./../key.pem'),
+    cert: fs.readFileSync('./../cert.pem')
+  };
 
-// Create HTTPS server
-https.createServer(options, app).listen(port, () => {
-  console.log(`HTTPS Server is running on https://localhost:${port}`);
-});
+  // Create HTTPS server
+  https.createServer(options, app).listen(port, () => {
+    console.log(`HTTPS Server is running on ${port}`);
+  });
+}
+
