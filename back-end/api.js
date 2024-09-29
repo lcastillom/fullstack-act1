@@ -9,7 +9,9 @@ const Cliente = require('./models/cliente'); // Importa el modelo de Cliente
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const app = express();
+
 const port = process.env.PORT || 3001; // Usa la variable de entorno PORT
+const baseUrl = process.env.URL || 'https://localhost'; // Usa la variable de entorno URL
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -30,7 +32,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `https://localhost:${port}`,
+        url: `${baseUrl}:${port}`,
       },
     ],
   },
@@ -251,7 +253,7 @@ app.delete('/api/clientes/:id', async (req, res) => {
 if (process.env.IS_PRODUCTION) {
   // Create HTTP server - hosting service add SSL/TLS
   app.listen(port, () => {
-    console.log(`HTTP Server is running on ${port}`);
+    console.log(`HTTP Server is running on ${baseUrl}:${port}`);
   });
 } else {
   // Read SSL/TLS certificate and key
@@ -262,7 +264,7 @@ if (process.env.IS_PRODUCTION) {
 
   // Create HTTPS server
   https.createServer(options, app).listen(port, () => {
-    console.log(`HTTPS Server is running on ${port}`);
+    console.log(`HTTPS Server is running on ${baseUrl}:${port}`);
   });
 }
 
