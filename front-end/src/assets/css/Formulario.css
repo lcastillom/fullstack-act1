@@ -1,69 +1,84 @@
-.formulario-section {
-  padding: 40px;
-  background-color: #f9f9f9;
+.form-container {
+  background-color: var(--white);
+  padding: 50px;
   border-radius: 8px;
-  max-width: 800px; /* Ajustamos el ancho máximo para dar espacio a dos columnas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.formulario {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Dos columnas de igual ancho */
-  gap: 20px; /* Espacio entre las columnas y filas */
-}
-
-h2 {
+.form-header {
   text-align: center;
-  grid-column: span 2; /* El título ocupa las dos columnas */
-  margin-bottom: 20px;
-  color: #333;
+  margin-bottom: 30px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
-label {
+.form-group label {
   margin-bottom: 5px;
-  color: #555;
   font-weight: bold;
 }
 
-input,
-textarea {
+.form-group input,
+.form-group textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1rem;
 }
 
-textarea {
+.form-group textarea {
   resize: vertical;
-  height: 100px;
 }
 
-.full-width {
-  grid-column: span 2; /* Hace que el campo ocupe ambas columnas */
-}
-
-button {
-  background-color: #8b4513; /* Café */
-  color: #fff;
+.form-group button {
   padding: 10px 20px;
+  background-color: var(--green);
+  color: var(--white);
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #6b3210; /* Más oscuro al pasar el mouse */
+.form-group button:hover {
+  background-color: #0056b3;
 }
 
+/* Estilos para resoluciones grandes */
+@media (min-width: 769px) {
+  .form-container form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
+  .form-group.full-width {
+    grid-column: span 2;
+  }
+}
+
+/* Estilos para resoluciones de celular */
 @media (max-width: 768px) {
-  .formulario {
-    grid-template-columns: 1fr; /* Cambia a una columna en pantallas pequeñas */
+  .form-container {
+    padding: 20px;
+    margin: 10px; /* Agrega un margen mínimo al componente */
+  }
+
+  .form-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: calc(100% - 20px); /* Ajusta el ancho de cada campo */
+    margin: 0 10px; /* Agrega un margen para que los campos no lleguen a los bordes */
   }
 }

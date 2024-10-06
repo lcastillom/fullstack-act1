@@ -29,8 +29,8 @@ const Formulario = () => {
       const response = await api.createCliente(formData);
       console.log('Cliente creado:', response);
 
-       // Muestra un mensaje de éxito
-       toast.success('Cliente creado exitosamente!');
+      // Muestra un mensaje de éxito
+      toast.success('Cliente creado exitosamente!');
       
       // Limpia el formulario restableciendo el estado formData a sus valores iniciales
       setFormData({
@@ -45,104 +45,106 @@ const Formulario = () => {
       });
     } catch (error) {
       console.error('Error creando cliente:', error);
-      // Muestra un mensaje de error
-      toast.error('Error creando cliente.');
+      toast.error('Error creando cliente');
     }
   };
 
   return (
-    <section className="formulario-section">
-      <form className="formulario" onSubmit={handleSubmit}>
-        <h2>Solicita Información</h2>
-
+    <section className="form-container">
+      <div className="form-header">
+        <h2>Formulario de Contacto</h2>
+      </div>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Nombres:</label>
+          <label htmlFor="nombres">Nombres</label>
           <input
             type="text"
+            id="nombres"
             name="nombres"
             value={formData.nombres}
             onChange={handleChange}
             required
           />
         </div>
-
         <div className="form-group">
-          <label>Apellido Paterno:</label>
+          <label htmlFor="apellidoPaterno">Apellido Paterno</label>
           <input
             type="text"
+            id="apellidoPaterno"
             name="apellidoPaterno"
             value={formData.apellidoPaterno}
             onChange={handleChange}
             required
           />
         </div>
-
         <div className="form-group">
-          <label>Apellido Materno:</label>
+          <label htmlFor="apellidoMaterno">Apellido Materno</label>
           <input
             type="text"
+            id="apellidoMaterno"
             name="apellidoMaterno"
             value={formData.apellidoMaterno}
             onChange={handleChange}
             required
           />
         </div>
-
         <div className="form-group">
-          <label>Teléfono:</label>
+          <label htmlFor="telefono">Teléfono</label>
           <input
             type="tel"
+            id="telefono"
             name="telefono"
             value={formData.telefono}
             onChange={handleChange}
             required
           />
         </div>
-
         <div className="form-group">
-          <label>Correo Electrónico:</label>
+          <label htmlFor="correo">Correo</label>
           <input
             type="email"
+            id="correo"
             name="correo"
             value={formData.correo}
             onChange={handleChange}
             required
           />
         </div>
-
         <div className="form-group">
-          <label>Ciudad:</label>
+          <label htmlFor="ciudad">Ciudad</label>
           <input
             type="text"
+            id="ciudad"
             name="ciudad"
             value={formData.ciudad}
             onChange={handleChange}
             required
           />
         </div>
-
         <div className="form-group full-width">
-          <label>Comentarios:</label>
+          <label htmlFor="comentarios">Comentarios</label>
           <textarea
+            id="comentarios"
             name="comentarios"
             value={formData.comentarios}
             onChange={handleChange}
-            placeholder="Opcional"
+            rows="4"
           />
         </div>
-
         <div className="form-group full-width">
-          <label>¿Cómo escuchaste de nosotros?</label>
+          <label htmlFor="comoEscuchaste">¿Cómo escuchaste de nosotros?</label>
           <input
             type="text"
+            id="comoEscuchaste"
             name="comoEscuchaste"
             value={formData.comoEscuchaste}
             onChange={handleChange}
             placeholder="Opcional"
           />
         </div>
-
-        <button type="submit" className="full-width">Enviar</button>
+        <div className="form-group full-width">
+          <button type="submit" className="full-width">Enviar</button>
+        </div>
       </form>
     </section>
   );

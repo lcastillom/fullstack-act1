@@ -1,25 +1,20 @@
 .places {
   padding: 50px;
 }
-
 .creel {
   background: linear-gradient(180deg, #d1b99a, #8B4513); /* De café claro a café oscuro */
- }
-
- .guachochi {
+}
+.guachochi {
   background: linear-gradient(180deg, #c7b3a66a, #bbc7bb); /* De café claro a café oscuro */
- }
-
- .cascada {
+}
+.cascada {
   background: linear-gradient(180deg, #22475b, #9abcd1); /* De café claro a café oscuro */
- }
-
- .places-header {
+}
+.places-header {
   text-align: center;
   margin-bottom: 50px;
   margin-top: 100px;
 }
-
 .places-list {
   display: flex;
   justify-content: space-around;
@@ -27,7 +22,6 @@
   width: 80%; /* Ocupa el 80% del contenedor principal */
   margin: 0 auto; /* Centra el contenedor dentro del padre */
 }
-
 .place {
   background-color: var(--white);
   padding: 20px;
@@ -35,25 +29,38 @@
   width: 45%; /* Ajusta el ancho de cada columna */
   margin-bottom: 20px; /* Espacio entre filas en caso de wrap */
 }
-
 .place p {
   font-size: 1.2em;
 }
-
 .place-center {
   display: grid; /* Cambia a grid layout */
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Crea una cuadrícula adaptable */
   gap: 20px; /* Espacio entre las imágenes */
   justify-items: center; /* Centra las imágenes en cada celda */
 }
-
 .place-center img {
   width: 100%; /* Asegura que las imágenes ocupen el 100% de la celda */
   height: auto; /* Mantiene las proporciones de la imagen */
   object-fit: cover; /* Ajusta la imagen para llenar el contenedor sin deformarse */
   border-radius: 8px; /* Opcional: añade bordes redondeados */
 }
-
 .places-header h2 {
   color: white;
+}
+/* Estilos para resoluciones de celular */
+@media (max-width: 768px) {
+  .places {
+    padding: 20px;
+  }
+  .places-list {
+    width: 100%; /* Ocupa el 100% del contenedor principal */
+    margin: 0; /* Elimina el margen */
+  }
+  .place {
+    width: 100%; /* Ajusta el ancho de cada columna */
+    margin-bottom: 10px; /* Reduce el espacio entre filas */
+  }
+  .place-center {
+    gap: 10px; /* Reduce el espacio entre las imágenes */
+  }
 }

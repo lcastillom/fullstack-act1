@@ -1,11 +1,10 @@
-/* Estilos generales del menú */
 .navbar {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 50px; /* Margen superior */
   left: 50px; /* Margen izquierdo */
-  right: 100px; /* Margen derecho */
-  width: calc(100% - 150px); /* Ajustar el ancho para tener en cuenta los márgenes */
+  right: 50px; /* Margen derecho */
+  width: calc(100% - 100px); /* Ajustar el ancho para tener en cuenta los márgenes */
   display: flex;
   justify-content: center; /* Centra el contenido horizontalmente */
   align-items: center; /* Centra el contenido verticalmente */
@@ -78,12 +77,8 @@
   .navbar-menu li {
     margin: 10px 0;
   }
-
-  .navbar-menu li a {
-    text-decoration: none;
-    font-size: 18px;
-    color: var(--brown);
-    text-decoration: none;
-    font-weight: bold;
+  
+  .navbar-logo h2 {
+    font-size: 1.4rem; /* Ajusta el tamaño de fuente */
   }
 }

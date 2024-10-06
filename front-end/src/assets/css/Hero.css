@@ -8,7 +8,7 @@
   background-size: cover;
   background-position: center;
   color: var(--white);
-  padding-top: 120px;
+  padding-top: 140px;
   padding-left: 20px;
   padding-right: 20px;
   box-sizing: border-box;
@@ -29,7 +29,7 @@
   flex-direction: column;
   justify-content: flex-start;
   max-width: 50%;
-  max-height: 60vh;
+  max-height: 55vh;
   overflow-y: auto; /* Barra de desplazamiento si el texto es muy largo */
   padding-right: 10px;
   box-sizing: border-box;
@@ -43,15 +43,6 @@
 .hero-text::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.3); /* Color semi-transparente para el thumb (la barra que se mueve) */
   border-radius: 10px; /* Bordes redondeados */
-}
-
-.hero-text::-webkit-scrollbar-track {
-  background-color: transparent; /* Fondo transparente del track (el riel de la barra) */
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
 }
 
 .hero h2 {
@@ -81,4 +72,37 @@ button {
   color: var(--white);
   border: none;
   cursor: pointer;
+}
+
+/* Estilos para resoluciones de celular */
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    padding-top: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    max-height: none;
+    padding-right: 0;
+  }
+
+  .hero-empty-space {
+    display: none;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-legend {
+    font-size: 1rem;
+  }
 }
