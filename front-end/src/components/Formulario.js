@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './../assets/css/Formulario.css';
-import api from './../utils/api'; // Importa la utilidad api
+import apiClient from '../utils/apiClient'; // Importa la utilidad api
 import { toast } from 'react-toastify';
 
 const Formulario = () => {
@@ -26,7 +26,7 @@ const Formulario = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.createCliente(formData);
+      const response = await apiClient.createCliente(formData);
       console.log('Cliente creado:', response);
 
       // Muestra un mensaje de éxito
