@@ -11,8 +11,8 @@ const app = express();
 const rutasClientes = require('./rutasClientes'); // Importa las rutas de clientes
 
 const port = process.env.PORT || 3001; // Usa la variable de entorno PORT
-const baseUrl = process.env.URL || 'https://localhost'; // Usa la variable de entorno URL
-const isProduction = process.env.IS_PRODUCTION === 'true';
+const isHttps = process.env.IS_HTTPS === 'true';
+const baseUrl = `${isHttps ? "https" : "http"}://${process.env.URL}` || `${isHttps ? "https" : "http"}://localhost`;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -51,7 +51,7 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: ['./api.js','./rutasClientes.js'], // Archivos donde se documentan los endpoints
+  apis: ['./apiClientes.js','./rutasClientes.js'], // Archivos donde se documentan los endpoints
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
@@ -78,15 +78,10 @@ mongoose.connect(uri, {})
  *         description: Mensaje de bienvenida
  */
 app.get('/', (req, res) => {
-  res.send('API is running');
+  res.send('API de Clientes esta funcionando correctamente');
 });
 
-if (isProduction) {
-  // Create HTTP server - hosting service add SSL/TLS
-  app.listen(port, () => {
-    console.log(`HTTP Server esta corriendo en ${baseUrl}:${port}`);
-  });
-} else {
+if (isHttps) {
   // Read SSL/TLS certificate and key
   const options = {
     key: fs.readFileSync('./../key.pem'),
@@ -96,5 +91,10 @@ if (isProduction) {
   // Create HTTPS server
   https.createServer(options, app).listen(port, () => {
     console.log(`HTTPS Server esta corriendo en ${baseUrl}:${port}`);
+  });
+} else {
+  // Create HTTP server - hosting service add SSL/TLS
+  app.listen(port, () => {
+    console.log(`HTTP Server esta corriendo en ${baseUrl}:${port}`);
   });
 }
