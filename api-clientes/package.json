@@ -1,11 +1,11 @@
 {
-  "name": "back-end",
+  "name": "api-clientes",
   "version": "1.0.0",
-  "main": "api.js",
+  "main": "apiClientes.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node api.js",
-    "dev": "nodemon api.js"
+    "start": "node apiClientes.js",
+    "dev": "nodemon apiClientes.js"
   },
   "keywords": [],
   "author": "",
