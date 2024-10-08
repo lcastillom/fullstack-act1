@@ -13,7 +13,7 @@ const sequelize = require('./config/database'); // Importa tu instancia de Seque
 
 const port = process.env.PORT || 3002; // Usa la variable de entorno PORT
 const isHttps = process.env.IS_HTTPS === 'true';
-const baseUrl = `${isHttps ? "https" : "http"}://${process.env.URL}` || `${isHttps ? "https" : "http"}://localhost`;
+const baseUrl = getBaseUrl();
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -100,4 +100,17 @@ if (isHttps) {
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
+}
+
+function getBaseUrl() {
+  const url = process.env.URL;
+  if (!url) {
+    return `${isHttps ? "https" : "http"}://localhost`;
+  }
+
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url;
+  }
+
+  return `${isHttps ? "https" : "http"}://${url}`;
 }
