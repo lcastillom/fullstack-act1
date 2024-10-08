@@ -81,4 +81,12 @@
   .navbar-logo h2 {
     font-size: 1.4rem; /* Ajusta el tamaño de fuente */
   }
+
+  .navbar-menu li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--brown);
+    text-decoration: none;
+    font-weight: bold;
+  }
 }
