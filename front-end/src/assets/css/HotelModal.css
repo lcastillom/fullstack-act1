@@ -1,0 +1,82 @@
+.hotel-modal {
+  position: relative;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+  z-index: 1050; /* Asegura que el modal esté por encima de otros elementos */
+}
+
+.hotel-modal-overlay {
+  background: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1040; /* Asegura que el overlay esté por encima de otros elementos */
+}
+
+.dropdown-container {
+  margin-bottom: 20px;
+}
+
+.dropdown-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+.dropdown-select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.hotel-list-container {
+  max-height: 300px; /* Altura máxima para la lista de hoteles */
+  overflow-y: auto; /* Habilita la barra de desplazamiento vertical */
+  margin-bottom: 20px; /* Espacio inferior para separar del botón de cerrar */
+}
+
+.hotel-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hotel-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.hotel-item h3 {
+  margin: 0 0 10px 0;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.close-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #0056b3;
+}
