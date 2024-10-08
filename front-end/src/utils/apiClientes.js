@@ -7,7 +7,7 @@ const axiosClient = axios.create({
   }
 });
 
-const apiClient = {
+const apiClientes = {
   // Función para obtener todos los clientes
   getClientes: async () => {
     try {
@@ -64,4 +64,4 @@ const apiClient = {
   }
 };
 
-export default apiClient;
+export default apiClientes;

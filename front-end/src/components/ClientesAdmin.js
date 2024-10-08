@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
-import apiClient from '../utils/apiClient';
+import apiClientes from '../utils/apiClientes';
 import ClienteDialog from './ClienteDialog';
 import './../assets/css/ClientesAdmin.css';
 
@@ -25,7 +25,7 @@ const ClientesAdmin = () => {
 
   const loadClientes = async () => {
     try {
-      const data = await apiClient.getClientes();
+      const data = await apiClientes.getClientes();
       setClientes(data);
     } catch (error) {
       console.error('Error fetching clients:', error);
@@ -68,10 +68,10 @@ const ClientesAdmin = () => {
     e.preventDefault();
     try {
       if (editingCliente) {
-        await apiClient.updateCliente(editingCliente._id, formData);
+        await apiClientes.updateCliente(editingCliente._id, formData);
         toast.success('Cliente actualizado exitosamente!');
       } else {
-        await apiClient.createCliente(formData);
+        await apiClientes.createCliente(formData);
         toast.success('Cliente creado exitosamente!');
       }
       setFormData({
@@ -95,7 +95,7 @@ const ClientesAdmin = () => {
 
   const handleDelete = async (id) => {
     try {
-      await apiClient.deleteCliente(id);
+      await apiClientes.deleteCliente(id);
       toast.success('Cliente eliminado exitosamente!');
       loadClientes();
     } catch (error) {
