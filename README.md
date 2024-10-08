@@ -1,31 +1,51 @@
-# Actividad 1 de Desarrollo Integral de Software (Fullstack)
+# Proyecto Full Stack
 
-Este repositorio contiene el proyecto de la actividad 1. Esta dividido en dos secciones: 
+Este proyecto es una aplicación full stack que incluye un frontend en React, dos APIs en Node.js y una base de datos MySQL. La aplicación se ejecuta en contenedores Docker utilizando Docker Compose.
 
-back-end
-front-end
+## Estructura del Proyecto
 
-## back-end
+- `front-end`: Contiene el código del frontend en React.
+- `api-clientes`: Contiene el código de la API de clientes en Node.js.
+- `api-hoteles`: Contiene el código de la API de hoteles en Node.js.
+- `docker-compose.yaml`: Archivo de configuración para Docker Compose.
 
-Api de ejemplo en node.js usando express.js con un end-point de prueba.
+## Requisitos
 
-### `node api.js`
+- Docker
+- Docker Compose
 
-Corre la API en modo de prueba.\
+## Configuración
 
-Abrir [https://localhost:3001](https://localhost:3001)
+### Variables de Entorno
 
-end-point de prueba
+Asegúrate de configurar las siguientes variables de entorno en un archivo `.env` en la raíz del proyecto:
 
-[https://localhost:3001/api/lugares](https://localhost:3001/api/lugares)
+#### API clientes
 
-## front-end
+```env
+MONGODB_URI=mongodb://localhost:27017/misvacaciones
+PORT=3001
+IS_HTTPS=false
+ORIGINS=http://localhost:3000,http://localhost:3001
+URL=localhost
+```
 
-Project en react que muestra una página de una agencia de viajes, que describe 3 destinos.
+#### API hoteles
 
-In the project directory, you can run:
+```env
+PORT=3002
+IS_HTTPS=false
+ORIGINS=http://localhost:3000,http://localhost:3002
+URL=localhost
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=123456
+DB_NAME=hoteles
+```
 
-### `npm start`
+#### Front-end
 
-Corre la applicacion en modo de desarrollo.\
-Abrir [http://localhost:3000](http://localhost:3000)
+```env
+REACT_APP_API_CLIENTES_URL=http://localhost:3001/api
+REACT_APP_API_HOTELES_URL=http://localhost:3002/api
+```
