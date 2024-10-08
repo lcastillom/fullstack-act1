@@ -1,0 +1,74 @@
+services:
+  frontend:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_CLIENTES_URL=http://localhost:3001
+      - REACT_APP_API_HOTELES_URL=http://localhost:3002
+    volumes:
+      - /app/node_modules
+
+  api-clientes:
+    build:
+      context: ./api-clientes
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/misvacaciones
+      - PORT=3001
+      - IS_HTTPS=false
+      - ORIGINS=http://localhost:3000,http://localhost:3001
+      - URL=localhost
+    volumes:
+      - ./api-clientes:/app
+      - /app/node_modules
+    depends_on:
+      - mongo
+
+  api-hoteles:
+    build:
+      context: ./api-hoteles
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+      - IS_HTTPS=false
+      - ORIGINS=http://localhost:3000,http://localhost:3002
+      - URL=localhost
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASSWORD=123456
+      - DB_NAME=hoteles
+    volumes:
+      - ./api-hoteles:/app
+      - /app/node_modules
+    depends_on:
+      - mysql
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: hoteles
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./api-hoteles/sql:/docker-entrypoint-initdb.d # Monta el directorio con los scripts SQL
+
+volumes:
+  mongo-data:
+  mysql-data:
