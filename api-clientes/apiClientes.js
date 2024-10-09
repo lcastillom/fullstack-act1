@@ -47,7 +47,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `${baseUrl}:${port}`,
+        url: `${baseUrl}${port == 80 ? '' : (':' + port)}`,
       },
     ],
   },
